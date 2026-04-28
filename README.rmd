@@ -162,12 +162,13 @@ sa_exports_ranked <- sa_exports %>%
     # Calculating each country's percentage of total exports per year
     group_by(year) %>%
     mutate(annual_exp_perc = (annual_exp/sum(annual_exp))*100) %>%
-    arrange(year,annual_exp_perc) %>%
+    arrange(year, annual_exp_perc)
 
 # aggregating exports by year and indexing
-sa_exports_total <- sa_exports %>%  ungroup() %>%
+sa_exports_total <- sa_exports %>% 
+    ungroup() %>%
     group_by(TIME_PERIOD) %>%
-    summarise(tot_mon_exports = sum(OBS_VALUE ,na.rm = T)) %>%
+    summarise(tot_mon_exports = sum(OBS_VALUE, na.rm = T)) %>%
 
     # Indexed to 2010-m01
     mutate(tot_export_index = tot_mon_exports/5279270626)
