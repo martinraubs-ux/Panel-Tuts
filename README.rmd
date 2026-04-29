@@ -214,7 +214,7 @@ scatterplot_data <- scatterplot_data %>%
     mutate(date_axis = ym(TIME_PERIOD))
 
 # 2. Re-create the plot object using the NEW column 'date_axis'
-g <- plot_scatter(scatterplot_data, x = date_axis, y = OBS_VALUE.y, color = reserves_indexed)
+g <- plot_scatter(scatterplot_data, x = date_axis, y = OBS_VALUE, color = reserves_indexed)
 
 # 3. Apply the date formatting and labels
 g <- g + 
